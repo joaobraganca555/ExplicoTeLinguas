@@ -3,3 +3,13 @@ body {
   margin: 0;
   background-color: #fff7f2;
 }
+
+@font-face {
+  font-family: 'Catchy Mager';
+  src: url('/fonts/CatchyMagerRegular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Slut Rizal Free';
+  src: url('/fonts/SulatRizalFree.otf') format('opentype');
+}
