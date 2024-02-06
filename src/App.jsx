@@ -1,4 +1,9 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  Navigate
+} from 'react-router-dom';
 import Error from './views/misc/Error';
 import Layout from './views/Layout';
 import Schedule from './views/Schedule';
@@ -10,7 +15,8 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index path="sobremim" element={<Profile />} />
+          {/* Redirect from the base URL to /#/sobremim */}
+          <Route index element={<Navigate replace to="/sobremim" />} />
           <Route path="sobremim" element={<Profile />} />
           <Route path="horario" element={<Schedule />} />
           <Route path="precos" element={<PriceList />} />

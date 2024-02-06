@@ -10,7 +10,7 @@ const Error = () => {
       height="calc(100vh - 80px)"
     >
       <Stack direction="row">
-        <img src="src/assets/error.png" />
+        <img src="error.png" />
         <Stack gap={3} justifyContent="center" alignItems="center">
           <Typography variant="h1" fontWeight="bold" color="primary">
             Oh não!
