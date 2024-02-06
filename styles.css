@@ -13,3 +13,8 @@ body {
   font-family: 'Slut Rizal Free';
   src: url('/fonts/SulatRizalFree.otf') format('opentype');
 }
+
+@font-face {
+  font-family: 'BDScript-Regular';
+  src: url('/fonts/BeautifullyDelicious.ttf') format('opentype');
+}
