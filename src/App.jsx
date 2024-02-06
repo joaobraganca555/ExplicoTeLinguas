@@ -10,7 +10,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Profile />} />
+          <Route index path="sobremim" element={<Profile />} />
           <Route path="sobremim" element={<Profile />} />
           <Route path="horario" element={<Schedule />} />
           <Route path="precos" element={<PriceList />} />
