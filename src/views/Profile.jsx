@@ -22,7 +22,7 @@ const Profile = () => {
       <Stack justifyContent="center" alignItems="center">
         <img
           style={{ lineHeight: '0px', display: 'flex' }}
-          src="/starsGlow.png"
+          src="src/assets/starsGlow.png"
           width={100}
         />
         <Typography
