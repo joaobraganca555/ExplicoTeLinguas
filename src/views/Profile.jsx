@@ -22,7 +22,7 @@ const Profile = () => {
       <Stack justifyContent="center" alignItems="center">
         <img
           style={{ lineHeight: '0px', display: 'flex' }}
-          src="src/assets/starsGlow.png"
+          src="starsGlow.png"
           width={100}
         />
         <Typography
@@ -90,7 +90,7 @@ const Profile = () => {
             Sonho ser professora universitária de espanhol
           </Typography>
           <Typography textAlign="end" color="primary" width={250}>
-            Tenho muito amor pela minha vocação e procura sempre fazer o meu
+            Tenho muito amor pela minha vocação e procuro sempre fazer o meu
             melhor
           </Typography>
           <Typography textAlign="end" color="primary" width={250}>
