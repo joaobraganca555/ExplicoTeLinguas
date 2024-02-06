@@ -7,5 +7,8 @@ const fetchSchedules = async () => {
 };
 
 export const useFetchSchedules = () => {
-  return useQuery('horarios', fetchSchedules);
+  return useQuery('horarios', fetchSchedules, {
+    retry: false,
+    refetchOnWindowFocus: false
+  });
 };

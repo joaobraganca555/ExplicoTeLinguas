@@ -2,8 +2,8 @@ import { Facebook } from '@mui/icons-material';
 import { Skeleton, Stack, Typography, useTheme } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useFetchSchedules } from '../hooks/useFetchSchedules.js';
+import Error from './misc/Error.jsx';
 
-// Reusable Schedule Item component
 const ScheduleItem = ({ day, hours }) => {
   const theme = useTheme();
   return (
@@ -11,7 +11,7 @@ const ScheduleItem = ({ day, hours }) => {
       borderRadius={8}
       padding={3}
       backgroundColor={theme.palette.primary.main}
-      width="30%"
+      width="35%"
     >
       <Typography textAlign="center" color="white" variant="h5">
         {day}
@@ -29,11 +29,9 @@ ScheduleItem.propTypes = {
 };
 
 const Schedule = () => {
-  const { data: records, isLoading, error } = useFetchSchedules();
+  const { data: records, isLoading, isError } = useFetchSchedules();
 
-  console.log(records);
-
-  if (error) return <div>Error: {error}</div>;
+  if (isError) return <Error />;
 
   return (
     <Stack
@@ -92,8 +90,8 @@ const Schedule = () => {
                 key={index}
                 sx={{ borderRadius: 8 }}
                 variant="rectangular"
-                width="35%"
-                height={120}
+                width="40%"
+                height={112}
               />
             ))}
           </Stack>

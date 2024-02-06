@@ -1,23 +1,27 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate
+} from 'react-router-dom';
 import Error from './views/misc/Error';
 import Home from './views/Home';
 import Schedule from './views/Schedule';
 import Profile from './views/Profile';
+import PriceList from './views/PriceList';
 
 const App = () => {
   return (
     <Router>
-      <div>
-        {/* Define your routes within Routes */}
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route path="sobremim" element={<Profile />} />
-            <Route path="horario" element={<Schedule />} />
-            <Route path="precos" element={<Error />} />
-            <Route path="error" element={<Error />} />
-          </Route>
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route index element={<Navigate to="/sobremim" replace />} />
+          <Route path="sobremim" element={<Profile />} />
+          <Route path="horario" element={<Schedule />} />
+          <Route path="precos" element={<PriceList />} />
+          <Route path="error" element={<Error />} />
+        </Route>
+      </Routes>
     </Router>
   );
 };

@@ -4,10 +4,13 @@ import client from '../api/pocketbase'; // Ensure this path is correct
 const fetchAna = async () => {
   const response = await client
     .collection('ana')
-    .getFirstListItem('name="Ana Moreira"');
+    .getFirstListItem('id="9kqfqr5zttzrja6"');
   return response;
 };
 
 export const useFetchAna = () => {
-  return useQuery('ana', fetchAna);
+  return useQuery('ana', fetchAna, {
+    retry: false,
+    refetchOnWindowFocus: false
+  });
 };

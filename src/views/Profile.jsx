@@ -1,11 +1,16 @@
 import { Avatar, Box, Skeleton, Stack, Typography } from '@mui/material';
 import { useFetchAna } from '../hooks/useFetchAna';
 import { pocketUrl } from '../constants/pocketbase';
+import Error from './misc/Error';
 
 const Profile = () => {
-  const { data: ana, isLoading } = useFetchAna();
+  const { data: ana, isLoading, isError, error } = useFetchAna();
 
-  console.log(ana);
+  if (isError) {
+    console.log(error);
+    return <Error />;
+  }
+
   return (
     <Stack
       justifyContent="center"
