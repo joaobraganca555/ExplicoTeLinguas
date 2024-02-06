@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Error from './views/misc/Error';
 import Layout from './views/Layout';
 import Schedule from './views/Schedule';
@@ -10,8 +10,8 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* <Route index element={<Navigate to="/sobremim" replace />} /> */}
-          <Route index path="sobremim" element={<Profile />} />
+          <Route index element={<Profile />} />
+          <Route path="sobremim" element={<Profile />} />
           <Route path="horario" element={<Schedule />} />
           <Route path="precos" element={<PriceList />} />
           <Route path="error" element={<Error />} />

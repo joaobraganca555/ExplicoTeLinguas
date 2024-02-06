@@ -36,6 +36,8 @@ const TopBar = () => {
           gap={1}
           alignItems="center"
           justifyContent="center"
+          onClick={() => navigate('/sobremim')}
+          sx={{ cursor: 'pointer' }}
         >
           <img style={{ borderRadius: 50 }} src="logo.jpeg" width={40} />
           <Typography color="secondary" variant="h6">
