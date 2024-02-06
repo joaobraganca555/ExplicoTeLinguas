@@ -5,7 +5,7 @@ import {
   Navigate
 } from 'react-router-dom';
 import Error from './views/misc/Error';
-import Home from './views/Home';
+import Layout from './views/Layout';
 import Schedule from './views/Schedule';
 import Profile from './views/Profile';
 import PriceList from './views/PriceList';
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="/sobremim" replace />} />
           <Route path="sobremim" element={<Profile />} />
           <Route path="horario" element={<Schedule />} />
