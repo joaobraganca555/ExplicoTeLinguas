@@ -5,10 +5,11 @@ import {
   Navigate
 } from 'react-router-dom';
 import Error from './views/misc/Error';
-import Layout from './views/Layout';
+import Layout from './layout/Layout';
 import Schedule from './views/Schedule';
 import Profile from './views/Profile';
 import PriceList from './views/PriceList';
+import NotFound from './views/misc/NotFound';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="horario" element={<Schedule />} />
           <Route path="precos" element={<PriceList />} />
           <Route path="error" element={<Error />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Router>

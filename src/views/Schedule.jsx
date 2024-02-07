@@ -11,12 +11,21 @@ const ScheduleItem = ({ day, hours }) => {
       borderRadius={8}
       padding={3}
       backgroundColor={theme.palette.primary.main}
-      width="35%"
+      width="90vw"
+      maxWidth="350px"
     >
-      <Typography textAlign="center" color="white" variant="h5">
+      <Typography
+        textAlign="center"
+        color="white"
+        fontSize={{ xs: '15px', sm: '17px', md: '20px', lg: '20px ' }}
+      >
         {day}
       </Typography>
-      <Typography textAlign="center" color="white" variant="h5">
+      <Typography
+        textAlign="center"
+        color="white"
+        fontSize={{ xs: '15px', sm: '17px', md: '20px', lg: '20px ' }}
+      >
         {hours}
       </Typography>
     </Stack>
@@ -34,84 +43,82 @@ const Schedule = () => {
   if (isError) return <Error />;
 
   return (
-    <Stack
-      alignItems="center"
-      justifyContent="center"
-      height="calc(100vh - 100px)"
-    >
-      <Stack padding={2} width="60%" gap={5}>
-        <Stack>
-          <Typography
-            textAlign="center"
-            color="primary"
-            fontSize={{ xs: '50px', sm: '60px', md: '70px', lg: '80px' }}
-            fontFamily="Catchy Mager"
-          >
-            HORÁRIO
-          </Typography>
-
-          <Typography
-            textAlign="center"
-            color="primary"
-            fontSize={{ xs: '100px', sm: '140px', md: '160px', lg: '180px' }}
-            fontFamily="BDScript-Regular"
-            lineHeight="50px"
-            sx={{
-              display: { xs: 'none', sm: 'block' }
-            }}
-          >
-            de funcionamento
-          </Typography>
-
-          <Typography
-            textAlign="end"
-            color="primary"
-            fontFamily="Catchy Mager"
-            fontSize={{ xs: '12px', sm: '14px', md: '16px', lg: '18px' }}
-          >
-            *Sessões de 1h, 1h30 ou 2h
-          </Typography>
-        </Stack>
-        {!isLoading ? (
-          <Stack gap={2} justifyContent="center" alignItems="center">
-            {records?.map((schedule) => (
-              <ScheduleItem
-                isLoading={isLoading}
-                key={schedule.id}
-                day={schedule.day}
-                hours={schedule.hours}
-              />
-            ))}
-          </Stack>
-        ) : (
-          <Stack gap={2} justifyContent="center" alignItems="center">
-            {[...Array(3)].map((_, index) => (
-              <Skeleton
-                key={index}
-                sx={{ borderRadius: 8 }}
-                variant="rectangular"
-                width="40%"
-                height={112}
-              />
-            ))}
-          </Stack>
-        )}
-        <Stack
-          justifyContent="center"
-          alignItems="center"
-          direction="row"
-          gap={1}
-          sx={{ cursor: 'pointer' }}
-          onClick={() =>
-            window.open(
-              'https://www.facebook.com/profile.php?id=61555878369231',
-              '_blank'
-            )
-          }
+    <Stack padding={2} gap={5} width="100%">
+      <Stack
+        width="50%"
+        alignSelf="center"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Typography
+          textAlign="center"
+          color="primary"
+          fontSize={{ xs: '40px', sm: '40px', md: '45px', lg: '55px' }} // Adjusted font sizes
+          fontFamily="Catchy Mager"
         >
-          <Facebook color="primary" />
-          <Typography color="primary">Explico-te Línguas</Typography>
+          HORÁRIO
+        </Typography>
+
+        <Typography
+          textAlign="center"
+          color="primary"
+          fontSize={{ xs: '55px', sm: '75px', md: '90px', lg: '95px' }} // Adjusted font sizes
+          fontFamily="BDScript-Regular"
+          lineHeight="40px" // Adjusted line height
+          // sx={{
+          //   display: { xs: 'none', sm: 'block' }
+          // }}
+        >
+          de funcionamento
+        </Typography>
+
+        <Typography
+          color="primary"
+          fontFamily="Catchy Mager"
+          fontSize={{ xs: '10px', sm: '12px', md: '14px', lg: '16px' }} // Adjusted font sizes
+        >
+          *Sessões de 1h, 1h30 ou 2h
+        </Typography>
+      </Stack>
+      {!isLoading ? (
+        <Stack gap={2.5} justifyContent="center" alignItems="center">
+          {records?.map((schedule) => (
+            <ScheduleItem
+              isLoading={isLoading}
+              key={schedule.id}
+              day={schedule.day}
+              hours={schedule.hours}
+            />
+          ))}
         </Stack>
+      ) : (
+        <Stack gap={2} justifyContent="center" alignItems="center">
+          {[...Array(3)].map((_, index) => (
+            <Skeleton
+              key={index}
+              sx={{ borderRadius: 8 }}
+              variant="rectangular"
+              width="40%"
+              height={112}
+            />
+          ))}
+        </Stack>
+      )}
+      <Stack
+        justifyContent="center"
+        alignItems="center"
+        direction="row"
+        gap={1}
+        sx={{ cursor: 'pointer' }}
+        onClick={() =>
+          window.open(
+            'https://www.facebook.com/profile.php?id=61555878369231',
+            '_blank'
+          )
+        }
+      >
+        <Facebook color="primary" />
+        <Typography color="primary">Explico-te Línguas</Typography>
       </Stack>
     </Stack>
   );

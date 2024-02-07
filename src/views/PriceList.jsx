@@ -1,4 +1,12 @@
-import { Chip, Divider, Skeleton, Stack, Typography } from '@mui/material';
+import {
+  Chip,
+  Divider,
+  Skeleton,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme
+} from '@mui/material';
 import {
   useFetchListPrice,
   useFetchSubjects
@@ -26,63 +34,64 @@ const PriceList = () => {
     isError: isErrorAna
   } = useFetchAna();
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
   if (isErrorListPrice || isErrorSubjects || isErrorAna) return <Error />;
 
   return (
-    <Stack
-      alignItems="center"
-      justifyContent="center"
-      height="calc(100vh - 100px)"
-      gap={3}
-    >
+    <Stack gap={3} padding={2}>
       <Stack>
         <Typography
           lineHeight={0.7}
-          variant="h2"
+          variant={isMobile ? 'h3' : 'h2'} // Adjusted font size for mobile
           color="primary"
           fontFamily="Catchy Mager"
+          alignSelf={isMobile ? 'center' : 'end'}
         >
           Tabela de Preços
         </Typography>
-        <Typography alignSelf="end" color="primary">
+        <Typography
+          alignSelf={isMobile ? 'center' : 'end'}
+          color="primary"
+          fontSize={isMobile ? '12px' : 'inherit'}
+        >
           *por hora
         </Typography>
       </Stack>
-
-      <Stack>
+      <Stack justifyContent="center">
         <Chip
           color="primary"
           label="EXPLICAÇÕES"
-          size="medium"
+          size={isMobile ? 'small' : 'medium'}
           sx={{
-            width: '420px',
+            width: '100%', // Adjusted width for mobile
             fontSize: '15px',
             letterSpacing: '2px',
             fontWeight: 'bold',
-            marginBottom: '5px'
+            marginBottom: '5px',
+            alignSelf: 'center'
           }}
         />
         {!isLoadingListPrice ? (
-          <>
-            {prices.map((p, index) => (
-              <Stack key={index}>
-                <Stack
-                  direction="row"
-                  justifyContent="space-between"
-                  paddingX={5}
-                  paddingY={0.2}
-                >
-                  <Typography color="primary" variant="h6">
-                    {p.type}
-                  </Typography>
-                  <Typography color="primary" variant="h6">
-                    {p.price}
-                  </Typography>
-                </Stack>
-                <Divider />
+          prices.map((p, index) => (
+            <Stack key={index}>
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                paddingX={isMobile ? 2 : 5} // Adjusted padding for mobile
+                paddingY={0.2}
+              >
+                <Typography color="primary" variant="subtitle1">
+                  {p.type}
+                </Typography>
+                <Typography color="primary" variant="subtitle1">
+                  {p.price}
+                </Typography>
               </Stack>
-            ))}
-          </>
+              <Divider />
+            </Stack>
+          ))
         ) : (
           <Stack gap={0.8}>
             {[...Array(4)].map((_, index) => (
@@ -91,7 +100,7 @@ const PriceList = () => {
                   sx={{ borderRadius: 4, alignSelf: 'center' }}
                   variant="rectangular"
                   height="25px"
-                  width="85%"
+                  width={isMobile ? '75%' : '85%'} // Adjusted width for mobile
                 />
                 <Divider />
               </Stack>
@@ -103,13 +112,13 @@ const PriceList = () => {
             sx={{ borderRadius: 4, alignSelf: 'center', marginTop: 2 }}
             variant="rectangular"
             height={48}
-            width="75%"
+            width={isMobile ? '60%' : '75%'} // Adjusted width for mobile
           />
         ) : (
           <Typography
             marginTop={2}
             color="primary"
-            width={350}
+            width={isMobile ? '80%' : 350} // Adjusted width for mobile
             textAlign="center"
             alignSelf="center"
           >
@@ -128,9 +137,9 @@ const PriceList = () => {
             !isLoadingAna ? (
               <Typography>{ana?.email}</Typography>
             ) : (
-              <Skeleton width={250.67} />
+              <Skeleton width={isMobile ? '50%' : 250.67} />
             )
-          }
+          } // Adjusted width for mobile
         />
       </Stack>
     </Stack>
