@@ -22,7 +22,7 @@ const Profile = () => {
   }
 
   return (
-    <Stack gap={isMobile ? 5 : 10}>
+    <Stack gap={isMobile ? 5 : 10} padding={5}>
       <Stack justifyContent="center" alignItems="center" gap={isMobile ? 2 : 4}>
         <img
           src="starsGlow.png"
@@ -76,10 +76,10 @@ const Profile = () => {
         </Stack>
         <Box
           sx={{
-            width: isMobile ? '50vw' : '33vw',
-            height: isMobile ? '50vw' : '33vw',
-            maxWidth: '100%', // Ensure it does not overflow the screen width on small devices
-            maxHeight: '100%', // Ensure it does not overflow the screen height on small devices
+            width: isMobile ? '50vw' : '31vw',
+            height: isMobile ? '50vw' : '31vw',
+            maxWidth: '80%', // Ensure it does not overflow the screen width on small devices
+            maxHeight: '80%', // Ensure it does not overflow the screen height on small devices
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
