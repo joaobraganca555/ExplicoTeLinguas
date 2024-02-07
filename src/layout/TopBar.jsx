@@ -58,6 +58,7 @@ const TopBar = () => {
           {navItems.map((item) => (
             <ListItem key={item} disablePadding>
               <ListItemButton
+                selected={location.pathname === navigateItem[item]}
                 onClick={() => navigate(navigateItem[item])}
                 sx={{ textAlign: 'center' }}
               >
