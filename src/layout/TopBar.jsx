@@ -137,7 +137,6 @@ const TopBar = () => {
           >
             {navItems.map((item) => (
               <Button
-                selected={location.pathname === navigateItem[item]}
                 sx={{
                   backgroundColor:
                     location.pathname === navigateItem[item] &&
