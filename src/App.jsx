@@ -10,6 +10,7 @@ import Schedule from './views/Schedule';
 import Profile from './views/Profile';
 import PriceList from './views/PriceList';
 import NotFound from './views/misc/NotFound';
+import Form from './views/Form';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="sobremim" element={<Profile />} />
           <Route path="horario" element={<Schedule />} />
           <Route path="precos" element={<PriceList />} />
+          <Route path="formulario" element={<Form />} />
           <Route path="error" element={<Error />} />
           <Route path="*" element={<NotFound />} />
         </Route>

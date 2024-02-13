@@ -22,11 +22,12 @@ import { Facebook, Instagram } from '@mui/icons-material';
 import { instagramUrl, facebookUrl } from '../constants/social';
 
 const drawerWidth = 240;
-const navItems = ['Sobre Mim', 'Horário', 'Preços'];
+const navItems = ['Sobre Mim', 'Horário', 'Preços', 'Formulário'];
 const navigateItem = {
   'Sobre Mim': '/sobremim',
   Horário: '/horario',
-  Preços: '/precos'
+  Preços: '/precos',
+  Formulário: '/formulario'
 };
 
 const TopBar = () => {
@@ -108,23 +109,24 @@ const TopBar = () => {
               display: { xs: 'none', sm: 'block' }
             }}
           >
-            <Stack
-              direction="row"
-              alignItems="center"
-              gap={1}
-              sx={{ cursor: 'pointer' }}
-              onClick={() => navigate('/sobremim')}
-            >
+            <Stack direction="row" alignItems="center" gap={1}>
               <img
                 style={{
                   borderRadius: 50,
                   mr: 2,
-                  display: { sm: 'none' }
+                  display: { sm: 'none' },
+                  cursor: 'pointer'
                 }}
                 src="logo.jpeg"
                 width={40}
+                onClick={() => navigate('/sobremim')}
               />
-              Explico-te Línguas
+              <Typography
+                sx={{ cursor: 'pointer' }}
+                onClick={() => navigate('/sobremim')}
+              >
+                Explico-te Línguas
+              </Typography>
             </Stack>
           </Typography>
           <Box
