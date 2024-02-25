@@ -35,8 +35,6 @@ const TopBar = () => {
   const location = useLocation();
   const theme = useTheme();
 
-  console.log(location);
-
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {

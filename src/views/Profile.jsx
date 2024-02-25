@@ -17,7 +17,7 @@ const Profile = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   if (isError) {
-    console.log(error);
+    console.error(error);
     return <Error />;
   }
 
