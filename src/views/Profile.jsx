@@ -144,8 +144,7 @@ const Profile = () => {
             width={isMobile ? '100%' : 250}
             textAlign={isMobile ? 'center' : 'end'}
           >
-            Fui técnica de Atividades de Enriquecimento Curricular em escolas
-            primárias
+            Sei 5 línguas: português, inglês, espanhol, francês e italiano
           </Typography>
         </Stack>
       </Stack>
