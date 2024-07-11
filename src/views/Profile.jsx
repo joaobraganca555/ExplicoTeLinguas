@@ -62,8 +62,7 @@ const Profile = () => {
             width={isMobile ? '100%' : 250}
             textAlign={isMobile ? 'center' : 'inherit'}
           >
-            Finalista na licenciatura de Línguas Aplicadas, na Universidade do
-            Minho
+            Licenciada em Línguas Aplicadas, na Universidade do Minho
           </Typography>
           <Typography
             color="primary"

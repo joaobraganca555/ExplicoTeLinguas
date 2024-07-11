@@ -72,13 +72,22 @@ const Schedule = () => {
           de funcionamento
         </Typography>
 
-        <Typography
-          color="primary"
-          fontFamily="Catchy Mager"
-          fontSize={{ xs: '10px', sm: '12px', md: '14px', lg: '16px' }} // Adjusted font sizes
-        >
-          *Sessões de 1h, 1h30 ou 2h
-        </Typography>
+        <Stack direction="row" gap={10} justifyContent="space-between">
+          <Typography
+            color="primary"
+            fontFamily="Catchy Mager"
+            fontSize={{ xs: '10px', sm: '12px', md: '14px', lg: '16px' }} // Adjusted font sizes
+          >
+            *Até finais de setembro
+          </Typography>
+          <Typography
+            color="primary"
+            fontFamily="Catchy Mager"
+            fontSize={{ xs: '10px', sm: '12px', md: '14px', lg: '16px' }} // Adjusted font sizes
+          >
+            *Sessões de 1h, 1h30 ou 2h
+          </Typography>
+        </Stack>
       </Stack>
       {!isLoading ? (
         <Stack gap={2.5} justifyContent="center" alignItems="center">
